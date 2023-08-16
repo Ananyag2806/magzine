@@ -1,22 +1,32 @@
-import './App.css';
+import { useState } from 'react';
+import { Configuration, OpenAIApi } from 'openai';
+
+require('dotenv').config();
 
 function App() {
-	return (
-		<div className='App'>
-			<header className='App-header'>
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className='App-link'
-					href='https://reactjs.org'
-					target='_blank'
-					rel='noopener noreferrer'>
-					Learn React
-				</a>
-			</header>
-		</div>
+	const [result, setResult] = useState('');
+	const openai = new OpenAIApi(
+		new Configuration({
+			apiKey: process.env.API_KEY,
+		})
 	);
+
+	openai
+		.createChatCompletion({
+			model: 'gpt-3.5-turbo',
+			messages: [
+				{
+					role: 'user',
+					content: 'Hello ChatGpt',
+				},
+			],
+		})
+		.then((res) => {
+			console.log(res.data.choices[0].message.content);
+			setResult(res.data.choices[0].message.content);
+		});
+
+	return <div className='App'>{result}</div>;
 }
 
 export default App;
