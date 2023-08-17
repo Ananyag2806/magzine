@@ -50,3 +50,12 @@ body {
 	bottom: 20%;
 	font-size: 16px;
 }
+.left,
+.right {
+	overflow: auto;
+	white-space: normal;
+	word-wrap: break-word;
+	overflow-y: auto; /* Allows vertical scrolling if content is too long */
+	white-space: normal; /* Allows text to wrap */
+	word-wrap: break-word; /* Breaks long words if they don't fit */
+}

@@ -25,13 +25,17 @@ const useStyles = makeStyles({
 	},
 	left: {
 		width: '40%',
-		overflow: 'scroll',
+		overflowY:
+			'auto' /* Allows vertical scrolling if content is too long */,
+		whiteSpace: 'normal' /* Allows text to wrap */,
+		wordWrap: 'break-word' /* Breaks long words if they don't fit */,
 	},
 	right: {
 		width: '60%',
-	},
-	scroll: {
-		display: 'block',
+		overflowY:
+			'auto' /* Allows vertical scrolling if content is too long */,
+		whiteSpace: 'normal' /* Allows text to wrap */,
+		wordWrap: 'break-word' /* Breaks long words if they don't fit */,
 	},
 });
 
@@ -77,14 +81,14 @@ function App() {
 			</div>
 			<div className='page second-page'>
 				<div className={classes.left}>
-					<div className={classes.scroll}>
+					<p>
 						akjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdl
-					</div>
+					</p>
 				</div>
 				<div className={classes.right}>
-					<div className={classes.scroll}>
+					<p>
 						oaishlaksdhakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlfkjhoisdfkjahdf
-					</div>
+					</p>
 				</div>
 			</div>
 			<div className='page third-page'>
