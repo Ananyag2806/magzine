@@ -25,17 +25,44 @@ const useStyles = makeStyles({
 	root: {
 		display: 'grid',
 	},
+	hero: {
+		backgroundColor: 'black',
+		position: 'relative',
+		overflow: 'hidden',
+	},
 	left: {
 		width: '40%',
 		overflowY: 'hidden',
 		whiteSpace: 'normal',
 		wordWrap: 'break-word',
+		height: '100%',
+		position: 'relative',
+		overflow: 'hidden',
 	},
 	right: {
 		width: '60%',
 		overflowY: 'auto',
 		whiteSpace: 'normal',
 		wordWrap: 'break-word',
+	},
+	image: {
+		opacity: '0.5',
+		objectFit: 'cover',
+		width: '100%',
+		height: '100%',
+	},
+
+	header: {
+		fontSize: '80px',
+		color: 'white',
+		textAlign: 'center',
+		position: 'absolute',
+		top: 0,
+		bottom: 0,
+		left: 0,
+		right: 0,
+		height: 'fit-content',
+		margin: 'auto',
 	},
 });
 
@@ -76,11 +103,21 @@ function App() {
 	return (
 		<div id='container' ref={containerRef}>
 			<div className='page first-page'>
-				<img src={image} width={'100%'}></img>
+				<div className={classes.hero}>
+					<img
+						className={classes.image}
+						src={image}
+						width={'100%'}></img>
+					<h1 className={classes.header}>React Is Awesome</h1>
+				</div>
 			</div>
 			<div className='page second-page'>
 				<div className={classes.left}>
-					<img src={image2} width={'100%'}></img>
+					<img
+						className={classes.image}
+						src={image2}
+						width={'100%'}></img>
+					<h1 className={classes.header}>React Is Awesome</h1>
 				</div>
 				<div className={classes.right}>
 					<p>
