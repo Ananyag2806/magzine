@@ -10,6 +10,8 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 import { makeStyles } from '@material-ui/core/styles';
+import image from './img/1.jpg';
+import image2 from './img/2.jpg';
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -25,17 +27,15 @@ const useStyles = makeStyles({
 	},
 	left: {
 		width: '40%',
-		overflowY:
-			'auto' /* Allows vertical scrolling if content is too long */,
-		whiteSpace: 'normal' /* Allows text to wrap */,
-		wordWrap: 'break-word' /* Breaks long words if they don't fit */,
+		overflowY: 'hidden',
+		whiteSpace: 'normal',
+		wordWrap: 'break-word',
 	},
 	right: {
 		width: '60%',
-		overflowY:
-			'auto' /* Allows vertical scrolling if content is too long */,
-		whiteSpace: 'normal' /* Allows text to wrap */,
-		wordWrap: 'break-word' /* Breaks long words if they don't fit */,
+		overflowY: 'auto',
+		whiteSpace: 'normal',
+		wordWrap: 'break-word',
 	},
 });
 
@@ -76,14 +76,11 @@ function App() {
 	return (
 		<div id='container' ref={containerRef}>
 			<div className='page first-page'>
-				<div>I</div>
-				<div className='hint'>scroll down</div>
+				<img src={image} width={'100%'}></img>
 			</div>
 			<div className='page second-page'>
 				<div className={classes.left}>
-					<p>
-						akjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdl
-					</p>
+					<img src={image2} width={'100%'}></img>
 				</div>
 				<div className={classes.right}>
 					<p>
