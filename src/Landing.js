@@ -6,7 +6,6 @@ import useScrollSnap from './useScrollSnap';
 import './style.css';
 import Custom from './Custom';
 import View from './View';
-import Landing from './Landing';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -14,7 +13,6 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { makeStyles } from '@material-ui/core/styles';
 import image from './img/1.jpg';
 import image2 from './img/2.jpg';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -69,7 +67,7 @@ const useStyles = makeStyles({
 	},
 });
 
-function App() {
+function Landing() {
 	const classes = useStyles();
 
 	const [result, setResult] = useState('');
@@ -82,16 +80,39 @@ function App() {
 	);
 
 	return (
-		<Router>
-			<Fragment>
-				<Routes>
-					<Route exact path='/' element={<Landing />} />
-					<Route exact path='/view' element={<View />} />
-					<Route exact path='/custom' element={<Custom />} />
-				</Routes>
-			</Fragment>
-		</Router>
+		<div id='container' ref={containerRef}>
+			<div className='page first-page'>
+				<div className={classes.hero}>
+					<img
+						className={classes.image}
+						src={image}
+						width={'100%'}></img>
+					<h1 className={classes.header}>React Is Awesome</h1>
+				</div>
+			</div>
+			<div className='page second-page'>
+				<div className={classes.left}>
+					<img
+						className={classes.image}
+						src={image2}
+						width={'100%'}></img>
+					<h1 className={classes.header}>React Is Awesome</h1>
+				</div>
+				<div className={classes.right}>
+					<p>
+						oaishlaksdhakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlfkjhoisdfkjahdf
+					</p>
+				</div>
+			</div>
+			<div className='page third-page'>
+				<div>III</div>
+			</div>
+			<div className='page fourth-page'>
+				<div>IV</div>
+				<div className='hint'>scroll up</div>
+			</div>
+		</div>
 	);
 }
 
-export default App;
+export default Landing;
