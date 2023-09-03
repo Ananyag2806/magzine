@@ -71,43 +71,69 @@ function View() {
 
 	const [result, setResult] = useState('');
 	const containerRef = React.createRef();
+	const [imageResult, setImageResult] = useState('');
 
 	const [bind, unbind] = useScrollSnap(
 		containerRef,
 		{ snapDestinationY: '90%' },
 		() => console.log('snapped')
 	);
-	// useEffect(() => {
-	// 	const openai = new OpenAIApi(
-	// 		new Configuration({
-	// 			apiKey: process.env.REACT_APP_API_KEY,
-	// 		})
-	// 	);
+	useEffect(() => {
+		const openai = new OpenAIApi(
+			new Configuration({
+				apiKey: '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',
+			})
+		);
 
-	// 	openai
-	// 		.createChatCompletion({
-	// 			model: 'gpt-3.5-turbo',
-	// 			messages: [
-	// 				{
-	// 					role: 'user',
-	// 					content: 'Hello ChatGpt',
-	// 				},
-	// 			],
-	// 		})
-	// 		.then((res) => {
-	// 			console.log(res.data.choices[0].message.content);
-	// 			setResult(res.data.choices[0].message.content);
-	// 		});
-	// }, []);
+		// openai
+		// 	.createChatCompletion({
+		// 		model: 'gpt-3.5-turbo',
+		// 		messages: [
+		// 			{
+		// 				role: 'user',
+		// 				content: 'Hello ChatGpt',
+		// 			},
+		// 		],
+		// 	})
+		// 	.then((res) => {
+		// 		console.log(res.data.choices[0].message.content);
+		// 		setResult(res.data.choices[0].message.content);
+		// 	});
+
+		// openai
+		// 	.createImage({
+		// 		prompt: "Create a visually stunning cover for a personalized AI magazine. The cover should include mesmerizing graphics, a headline that reads 'Unlocking the Potential of Personalized AI,' and elements that represent artificial intelligence, such as neural networks, circuits, and glowing lines",
+		// 		n: 1,
+		// 		size: '512x512',
+		// 	})
+		// 	.then((res) => {
+		// 		console.log(res);
+		// 	});
+	}, []);
+
+	// const generateImage = async () => {
+	// 	const res = await openai.createImage({
+	// 		prompt: "Create a visually stunning cover for a personalized AI magazine. The cover should include mesmerizing graphics, a headline that reads 'Unlocking the Potential of Personalized AI,' and elements that represent artificial intelligence, such as neural networks, circuits, and glowing lines",
+	// 		n: 1,
+	// 		size: '512x512',
+	// 	});
+
+	// 	setResult(res.data.data[0].url);
+	// };
 
 	return (
 		<div id='container' ref={containerRef}>
 			<div className='page first-page'>
 				<div className={classes.hero}>
-					<img
-						className={classes.image}
-						src={image}
-						width={'100%'}></img>
+					{result.length > 0 ? (
+						<img
+							className='result-image'
+							src={imageResult}
+							alt='result'
+						/>
+					) : (
+						<></>
+					)}
 					<h1 className={classes.header}>React Is Awesome</h1>
 				</div>
 			</div>

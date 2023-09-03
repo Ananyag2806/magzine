@@ -1,18 +1,17 @@
 import { useState, useEffect, Fragment } from 'react';
-import { useRef } from 'react';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import useScrollSnap from './useScrollSnap';
 import './style.css';
-import Custom from './Custom';
-import View from './View';
 import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Unstable_Grid2';
 import { makeStyles } from '@material-ui/core/styles';
 import image from './img/1.jpg';
+import ai from './img/3.png';
+import persona from './img/4.png';
+import art from './img/5.png';
 import image2 from './img/2.jpg';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -54,7 +53,6 @@ const useStyles = makeStyles({
 	},
 
 	header: {
-		fontSize: '80px',
 		color: 'white',
 		textAlign: 'center',
 		position: 'absolute',
@@ -64,6 +62,21 @@ const useStyles = makeStyles({
 		right: 0,
 		height: 'fit-content',
 		margin: 'auto',
+	},
+	h1: {
+		fontSize: '50px',
+		fontWeight: '500',
+	},
+	h4: {
+		fontWeight: '350',
+		color: '#bcbcbc',
+	},
+	buttonGrp: {
+		justifyContent: 'center',
+		color: '#ffffff',
+	},
+	icon: {
+		height: '80px',
 	},
 });
 
@@ -87,22 +100,32 @@ function Landing() {
 						className={classes.image}
 						src={image}
 						width={'100%'}></img>
-					<h1 className={classes.header}>React Is Awesome</h1>
+					<div className={classes.header}>
+						<h1 className={classes.h1}>
+							Introducing Your Own Personalized Magazine — Curated
+							Just for You
+						</h1>
+						<h4 className={classes.h4}>
+							Experience a magazine that knows you. From topics
+							you love to stories that matter to you
+						</h4>
+						<Stack
+							className={classes.buttonGrp}
+							spacing={2}
+							direction='row'>
+							<Button variant='outlined'>View</Button>
+							<Button variant='outlined'>Custum</Button>
+						</Stack>
+					</div>
 				</div>
 			</div>
 			<div className='page second-page'>
-				<div className={classes.left}>
-					<img
-						className={classes.image}
-						src={image2}
-						width={'100%'}></img>
-					<h1 className={classes.header}>React Is Awesome</h1>
-				</div>
-				<div className={classes.right}>
-					<p>
-						oaishlaksdhakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlakjsdf;lkjsd;flkjasd;lkfjdlfkjhoisdfkjahdf
-					</p>
-				</div>
+				<h2>Features</h2>
+				<Stack spacing={2} direction='row'>
+					<img className={classes.icon} src={persona} />
+					<img className={classes.icon} src={ai} />
+					<img className={classes.icon} src={art} />
+				</Stack>
 			</div>
 			<div className='page third-page'>
 				<div>III</div>
