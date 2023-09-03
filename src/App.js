@@ -15,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import image from './img/1.jpg';
 import image2 from './img/2.jpg';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Footer from './Footer';
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -89,6 +90,7 @@ function App() {
 					<Route exact path='/view' element={<View />} />
 					<Route exact path='/custom' element={<Custom />} />
 				</Routes>
+				<Footer />
 			</Fragment>
 		</Router>
 	);

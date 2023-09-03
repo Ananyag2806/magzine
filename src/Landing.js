@@ -9,9 +9,13 @@ import image from './img/1.jpg';
 import ai from './img/3.png';
 import persona from './img/4.png';
 import art from './img/5.png';
+import i1 from './img/6.png';
+import i2 from './img/7.png';
+import i3 from './img/8.png';
 import image2 from './img/2.jpg';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import Footer from './Footer';
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -76,7 +80,15 @@ const useStyles = makeStyles({
 		color: '#ffffff',
 	},
 	icon: {
-		height: '80px',
+		height: '100px',
+	},
+	feat: {
+		textAlign: 'center',
+	},
+	featTxt: {
+		fontWeight: '450',
+		color: '#4d4d4d',
+		fontSize: '15px',
 	},
 });
 
@@ -122,17 +134,37 @@ function Landing() {
 			<div className='page second-page'>
 				<h2>Features</h2>
 				<Stack spacing={2} direction='row'>
-					<img className={classes.icon} src={persona} />
-					<img className={classes.icon} src={ai} />
-					<img className={classes.icon} src={art} />
+					<div className={classes.feat}>
+						<img className={classes.icon} src={persona} />
+						<h4 className={classes.featTxt}>
+							{' '}
+							Experience a magazine that knows you. From topics
+							you love to stories that matter to youExperience a
+							magazine that knows you. From topics you love to
+							stories that matter to you{' '}
+						</h4>
+					</div>
+					<div className={classes.feat}>
+						<img className={classes.icon} src={ai} />
+						<h4 className={classes.featTxt}>
+							{' '}
+							Experience a magazine that knows you. From topics
+							you love to stories that matter to youExperience a
+							magazine that knows you. From topics you love to
+							stories that matter to you{' '}
+						</h4>
+					</div>
+					<div className={classes.feat}>
+						<img className={classes.icon} src={art} />
+						<h4 className={classes.featTxt}>
+							{' '}
+							Experience a magazine that knows you. From topics
+							you love to stories that matter to youExperience a
+							magazine that knows you. From topics you love to
+							stories that matter to you{' '}
+						</h4>
+					</div>
 				</Stack>
-			</div>
-			<div className='page third-page'>
-				<div>III</div>
-			</div>
-			<div className='page fourth-page'>
-				<div>IV</div>
-				<div className='hint'>scroll up</div>
 			</div>
 		</div>
 	);
