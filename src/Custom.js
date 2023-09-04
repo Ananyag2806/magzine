@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 import { render } from 'react-dom';
-import { COUNTRIES } from './countries';
 import './style.css';
 import { WithContext as ReactTags } from 'react-tag-input';
-
-const suggestions = COUNTRIES.map((country) => {
-	return {
-		id: country,
-		text: country,
-	};
-});
 
 const KeyCodes = {
 	comma: 188,
@@ -19,12 +11,7 @@ const KeyCodes = {
 const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
 const Custom = () => {
-	const [tags, setTags] = React.useState([
-		{ id: 'Thailand', text: 'Thailand' },
-		{ id: 'India', text: 'India' },
-		{ id: 'Vietnam', text: 'Vietnam' },
-		{ id: 'Turkey', text: 'Turkey' },
-	]);
+	const [tags, setTags] = React.useState([]);
 
 	const handleDelete = (i) => {
 		setTags(tags.filter((tag, index) => index !== i));
@@ -50,11 +37,10 @@ const Custom = () => {
 
 	return (
 		<div className='app'>
-			<h1> React Tags Example </h1>
+			<h1> Select </h1>
 			<div>
 				<ReactTags
 					tags={tags}
-					suggestions={suggestions}
 					delimiters={delimiters}
 					handleDelete={handleDelete}
 					handleAddition={handleAddition}
@@ -62,11 +48,10 @@ const Custom = () => {
 					handleTagClick={handleTagClick}
 					inputFieldPosition='bottom'
 					autocomplete
-					editable
 				/>
 			</div>
 		</div>
 	);
 };
 
-render(<Custom />, document.getElementById('root'));
+export default Custom;
